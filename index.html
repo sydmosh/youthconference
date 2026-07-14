@@ -1,0 +1,1087 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Youth Conference – From Dreams to Reality</title>
+  <meta name="description" content="Youth Conference programme: From Dreams to Reality" />
+
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background: #0a0a1a;
+      color: #e0e0e0;
+      font-family: system-ui, -apple-system, sans-serif;
+      min-height: 100vh;
+    }
+    header {
+      background: linear-gradient(135deg, #1a1a4e 0%, #0d0d2b 100%);
+      padding: 3rem 1rem;
+      text-align: center;
+      border-bottom: 3px solid #ffd700;
+    }
+    header h1 { font-size: 2.8rem; font-weight: 800; color: #ffd700; letter-spacing: -0.02em; }
+    header .theme { font-size: 1.5rem; font-weight: 300; margin-top: 0.5rem; opacity: 0.9; }
+    header .scripture { font-size: 1rem; margin-top: 0.6rem; font-style: italic; opacity: 0.7; max-width: 600px; margin-left: auto; margin-right: auto; }
+    header .details { font-size: 0.9rem; margin-top: 0.5rem; opacity: 0.75; }
+    header .fee { display: inline-block; margin-top: 0.75rem; background: #ffd700; color: #0a0a1a; padding: 0.3rem 1.2rem; border-radius: 20px; font-weight: 700; font-size: 0.9rem; }
+    .toolbar { display: flex; justify-content: flex-end; gap: 0.75rem; max-width: 900px; margin: 1rem auto 0; padding: 0 1rem; }
+    .toolbar button {
+      background: #ffd700; color: #0a0a1a; border: none; padding: 0.5rem 1.2rem;
+      border-radius: 8px; font-weight: 600; font-size: 0.85rem; cursor: pointer;
+    }
+    .toolbar button:hover { background: #e6c200; }
+    main { max-width: 900px; margin: 0 auto; padding: 2rem 1rem; }
+    .schedule { display: flex; flex-direction: column; gap: 2rem; }
+
+    .day-section {
+      background: linear-gradient(135deg, #14143a, #0d0d2b);
+      border-radius: 16px; padding: 1.75rem; border: 1px solid #2a2a5a;
+    }
+    .day-section h2 {
+      font-size: 1.6rem; color: #ffd700; margin-bottom: 0.25rem;
+    }
+    .day-section .day-sub {
+      font-size: 0.9rem; opacity: 0.7; margin-bottom: 1rem;
+    }
+    .day-section .day-theme {
+      font-size: 0.95rem; color: #88ccff; margin-bottom: 1rem; font-style: italic;
+    }
+    .day-section .session-icon { font-size: 1.2rem; line-height: 1; flex-shrink: 0; margin-top: 0.1rem; }
+    .day-section .session-row { display: flex; align-items: flex-start; gap: 0.65rem; }
+    .day-section .session-body { flex: 1; }
+    .day-section .session-header { display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 0.4rem; }
+    .day-section .session-header h3 { font-size: 1rem; font-weight: 600; color: #fff; }
+    .day-section .session-time { font-size: 0.78rem; color: #ffd700; white-space: nowrap; font-weight: 500; }
+    .day-section .session-desc { margin-top: 0.25rem; font-size: 0.85rem; opacity: 0.8; }
+    .day-section .session-topic { margin-top: 0.2rem; font-size: 0.85rem; color: #88ccff; font-style: italic; }
+
+    .session-item {
+      padding: 0.6rem 0; border-bottom: 1px solid rgba(255,215,0,0.08);
+    }
+    .session-item:last-child { border-bottom: none; padding-bottom: 0; }
+    .session-item:first-child { padding-top: 0; }
+
+    .workshops { margin-top: 0.75rem; display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem; }
+    .workshop {
+      background: #1a1a3e; border-radius: 8px; padding: 0.75rem;
+      border: 1px solid #2a2a5a;
+    }
+    .workshop h4 { font-size: 0.9rem; font-weight: 600; color: #ffd700; }
+    .workshop p { margin-top: 0.2rem; font-size: 0.82rem; opacity: 0.8; }
+    .workshop ul { margin-top: 0.3rem; padding-left: 1.1rem; font-size: 0.8rem; opacity: 0.75; }
+
+    .books-btn {
+      margin-top: 0.5rem; background: none; border: 1px solid #ffd700;
+      color: #ffd700; padding: 0.3rem 0.75rem; border-radius: 6px;
+      cursor: pointer; font-size: 0.78rem; font-weight: 500;
+    }
+    .books-btn:hover { background: #ffd700; color: #0a0a1a; }
+    .books-list { margin-top: 0.5rem; display: flex; flex-direction: column; gap: 0.35rem; }
+    .book-item {
+      display: flex; justify-content: space-between; align-items: center;
+      background: #1a1a3e; border-radius: 6px; padding: 0.45rem 0.7rem; font-size: 0.82rem;
+    }
+    .book-domain {
+      font-size: 0.65rem; background: #ffd700; color: #0a0a1a;
+      padding: 0.12rem 0.45rem; border-radius: 4px; font-weight: 600;
+      white-space: nowrap; margin-left: 0.5rem; flex-shrink: 0;
+    }
+
+    .discussion-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.4rem; margin-top: 0.75rem; }
+    .discussion-item {
+      background: #1a1a3e; border-radius: 6px; padding: 0.5rem 0.75rem;
+      font-size: 0.82rem; border-left: 3px solid #ffd700;
+    }
+
+    .challenge-box {
+      margin-top: 1.5rem; background: linear-gradient(135deg, #1a1a4e, #14143a);
+      border-radius: 12px; padding: 1.5rem; border: 2px solid #ffd700;
+    }
+    .challenge-box h3 { color: #ffd700; font-size: 1.2rem; }
+    .challenge-box p { font-size: 0.88rem; opacity: 0.85; margin-top: 0.4rem; }
+    .challenge-box ul { margin-top: 0.6rem; padding-left: 1.2rem; font-size: 0.85rem; opacity: 0.8; }
+    .challenge-box ul li { margin-top: 0.25rem; }
+
+    .hosts {
+      margin-top: 2rem; text-align: center; padding: 1.5rem;
+      background: #12122a; border-radius: 12px; border: 1px solid #2a2a5a;
+    }
+    .hosts p { font-size: 0.9rem; opacity: 0.8; margin-top: 0.3rem; }
+    .hosts .label { color: #ffd700; font-weight: 600; }
+
+    .page-footer { margin-top: 2.5rem; padding: 1rem; text-align: center; border-top: 1px solid #333; font-size: 0.85rem; opacity: 0.6; }
+
+    @media (max-width: 600px) {
+      header h1 { font-size: 1.8rem; }
+      header .theme { font-size: 1.1rem; }
+      .workshops { grid-template-columns: 1fr; }
+      .discussion-grid { grid-template-columns: 1fr; }
+      .session-header { flex-direction: column; align-items: flex-start; }
+      .book-item { flex-direction: column; align-items: flex-start; gap: 0.25rem; }
+      .book-domain { margin-left: 0; }
+    }
+
+    @page {
+      size: A4;
+      margin: 15mm 12mm;
+    }
+    @media print {
+      body { background: #fff; color: #000; font-size: 10pt; }
+      header { background: #1a1a4e !important; padding: 1.5rem 1rem; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      header h1 { font-size: 22pt; }
+      header .theme { font-size: 14pt; }
+      header .scripture { font-size: 9pt; }
+      header .details { font-size: 9pt; }
+      main { max-width: 100%; padding: 1rem 0; }
+      .day-section {
+        background: #f4f4ff !important; border: 1px solid #999 !important;
+        border-radius: 6px; padding: 1rem; margin-bottom: 1rem;
+        page-break-inside: avoid;
+        -webkit-print-color-adjust: exact; print-color-adjust: exact;
+      }
+      .day-section h2 { font-size: 13pt; color: #b8860b; }
+      .day-section .day-sub, .day-section .day-theme { font-size: 9pt; }
+      .day-section .session-header h3 { font-size: 9.5pt; color: #000; }
+      .day-section .session-time { font-size: 8pt; color: #b8860b; }
+      .day-section .session-desc, .day-section .session-topic { font-size: 8.5pt; }
+      .day-section .session-icon { font-size: 10pt; }
+      .session-item { padding: 0.35rem 0; }
+      .workshops { display: block; }
+      .workshop {
+        background: #fff !important; border: 1px solid #ccc !important;
+        border-radius: 4px; padding: 0.5rem 0.65rem; margin-bottom: 0.35rem;
+        page-break-inside: avoid;
+        -webkit-print-color-adjust: exact; print-color-adjust: exact;
+      }
+      .workshop h4 { font-size: 9pt; color: #b8860b; }
+      .workshop p, .workshop ul { font-size: 8pt; }
+      .discussion-grid { display: block; column-count: 2; column-gap: 0.5rem; }
+      .discussion-item {
+        background: #fff !important; border: 1px solid #ddd !important;
+        border-left: 3px solid #b8860b !important;
+        border-radius: 3px; padding: 0.3rem 0.5rem; font-size: 8pt;
+        margin-bottom: 0.3rem; page-break-inside: avoid;
+        -webkit-print-color-adjust: exact; print-color-adjust: exact;
+      }
+      .book-item { background: #fff !important; border: 1px solid #ddd; font-size: 8pt; padding: 0.3rem 0.5rem; }
+      .book-domain { background: #b8860b !important; color: #fff !important; font-size: 7pt; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      .challenge-box { background: #f4f4ff !important; border: 2px solid #b8860b; border-radius: 6px; padding: 1rem; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      .challenge-box h3 { font-size: 11pt; color: #b8860b; }
+      .challenge-box p, .challenge-box ul { font-size: 8.5pt; }
+      .hosts { background: #f4f4ff; border: 1px solid #ccc; font-size: 9pt; }
+      .hosts .label { color: #b8860b; }
+      .page-footer { font-size: 8pt; }
+      .toolbar, .books-btn { display: none !important; }
+      .books-list { display: flex !important; }
+      .fee { background: #b8860b !important; color: #fff !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    }
+  </style>
+</head>
+<body>
+
+<header id="print-header">
+  <h1>YOUTH CONFERENCE PROGRAMME</h1>
+  <p class="theme">FROM DREAMS TO REALITY</p>
+  <p class="scripture">"Commit to the Lord whatever you do, and He will establish your plans." – Proverbs 16:3</p>
+  <p class="details">Venue: Talent Smart Christian School, Kolonyama</p>
+  <p class="details">Dates: 16–19 July 2026</p>
+  <p class="fee">M200 &middot; Everyone Invited</p>
+</header>
+
+<div class="toolbar">
+  <button onclick="downloadPDF()">Download PDF</button>
+  <button onclick="window.print()">Print</button>
+</div>
+
+<main id="program-content">
+
+  <!-- THURSDAY -->
+  <div class="schedule">
+
+    <div class="day-section">
+      <h2>THURSDAY &ndash; 16 JULY 2026</h2>
+      <p class="day-sub">Opening Service &middot; 7:00 PM &ndash; 10:00 PM</p>
+
+      <div class="session-item">
+        <div class="session-row">
+          <span class="session-icon">🎵</span>
+          <div class="session-body">
+            <div class="session-header">
+              <h3>Praise &amp; Worship</h3>
+              <span class="session-time">7:00 &ndash; 7:45 PM</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="session-item">
+        <div class="session-row">
+          <span class="session-icon">🙏</span>
+          <div class="session-body">
+            <div class="session-header">
+              <h3>Opening Prayer</h3>
+              <span class="session-time">7:45 &ndash; 7:55 PM</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="session-item">
+        <div class="session-row">
+          <span class="session-icon">👋</span>
+          <div class="session-body">
+            <div class="session-header">
+              <h3>Welcome Remarks &amp; Conference Orientation</h3>
+              <span class="session-time">7:55 &ndash; 8:10 PM</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="session-item">
+        <div class="session-row">
+          <span class="session-icon">🎤</span>
+          <div class="session-body">
+            <div class="session-header">
+              <h3>Preacher: _______________________________</h3>
+              <span class="session-time">8:10 &ndash; 9:10 PM</span>
+            </div>
+            <p class="session-topic">Suggested Topic: From Dreams to Reality &ndash; Discovering God's Purpose</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="session-item">
+        <div class="session-row">
+          <span class="session-icon">🔥</span>
+          <div class="session-body">
+            <div class="session-header">
+              <h3>Prayer &amp; Ministry</h3>
+              <span class="session-time">9:10 &ndash; 9:50 PM</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="session-item">
+        <div class="session-row">
+          <span class="session-icon">📢</span>
+          <div class="session-body">
+            <div class="session-header">
+              <h3>Announcements &amp; Closing Prayer</h3>
+              <span class="session-time">9:50 &ndash; 10:00 PM</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- FRIDAY MORNING -->
+    <div class="day-section">
+      <h2>FRIDAY &ndash; 17 JULY 2026</h2>
+      <p class="day-sub">Morning Service &middot; 10:00 AM &ndash; 1:00 PM</p>
+
+      <div class="session-item">
+        <div class="session-row">
+          <span class="session-icon">🎵</span>
+          <div class="session-body">
+            <div class="session-header">
+              <h3>Praise &amp; Worship</h3>
+              <span class="session-time">10:00 &ndash; 10:25 AM</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="session-item">
+        <div class="session-row">
+          <span class="session-icon">🙏</span>
+          <div class="session-body">
+            <div class="session-header">
+              <h3>Opening Prayer</h3>
+              <span class="session-time">10:25 &ndash; 10:35 AM</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="session-item">
+        <div class="session-row">
+          <span class="session-icon">🎤</span>
+          <div class="session-body">
+            <div class="session-header">
+              <h3>Preacher: _______________________________</h3>
+              <span class="session-time">10:35 &ndash; 11:35 AM</span>
+            </div>
+            <p class="session-topic">Suggested Topic: Knowing God's Will for Your Future</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="session-item">
+        <div class="session-row">
+          <span class="session-icon">☕</span>
+          <div class="session-body">
+            <div class="session-header">
+              <h3>Tea Break</h3>
+              <span class="session-time">11:35 &ndash; 11:50 AM</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="session-item">
+        <div class="session-row">
+          <span class="session-icon">🎯</span>
+          <div class="session-body">
+            <div class="session-header">
+              <h3>Interactive Session: Vision, Goal Setting &amp; Personal Development</h3>
+              <span class="session-time">11:50 AM &ndash; 12:40 PM</span>
+            </div>
+            <p class="session-desc">An engaging workshop on defining your vision, setting SMART goals, and creating a personal development plan.</p>
+            <button class="books-btn" onclick="toggleBooks(this)">Show Book Recommendations</button>
+            <div class="books-list" style="display:none">
+              <div class="book-item"><span><strong>The 7 Habits of Highly Effective People</strong> &ndash; Stephen R. Covey</span><span class="book-domain">Leadership</span></div>
+              <div class="book-item"><span><strong>Atomic Habits</strong> &ndash; James Clear</span><span class="book-domain">Personal Development</span></div>
+              <div class="book-item"><span><strong>Think and Grow Rich</strong> &ndash; Napoleon Hill</span><span class="book-domain">Finance &amp; Mindset</span></div>
+              <div class="book-item"><span><strong>The Purpose Driven Life</strong> &ndash; Rick Warren</span><span class="book-domain">Spiritual Growth</span></div>
+              <div class="book-item"><span><strong>How to Win Friends and Influence People</strong> &ndash; Dale Carnegie</span><span class="book-domain">Relationships &amp; Networking</span></div>
+              <div class="book-item"><span><strong>The Lean Startup</strong> &ndash; Eric Ries</span><span class="book-domain">Entrepreneurship</span></div>
+              <div class="book-item"><span><strong>Platform</strong> &ndash; Michael Hyatt</span><span class="book-domain">Social Media &amp; Branding</span></div>
+              <div class="book-item"><span><strong>The Go-Giver</strong> &ndash; Bob Burg</span><span class="book-domain">Business &amp; Influence</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="session-item">
+        <div class="session-row">
+          <span class="session-icon">🙌</span>
+          <div class="session-body">
+            <div class="session-header">
+              <h3>Prayer &amp; Commitment</h3>
+              <span class="session-time">12:40 &ndash; 12:55 PM</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="session-item">
+        <div class="session-row">
+          <span class="session-icon">📢</span>
+          <div class="session-body">
+            <div class="session-header">
+              <h3>Announcements</h3>
+              <span class="session-time">12:55 &ndash; 1:00 PM</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- FRIDAY AFTERNOON -->
+    <div class="day-section">
+      <h2>Friday Afternoon</h2>
+      <p class="day-sub">Innovation &amp; Action Lab</p>
+      <p class="day-theme">Theme: Stop Dreaming, Start Building &middot; 2:00 PM &ndash; 5:00 PM</p>
+      <p class="session-desc" style="margin-bottom:0.75rem; font-size:0.9rem;"><em>Objective: Every participant leaves the conference with a practical project to begin within 30 days.</em></p>
+
+      <div class="session-item">
+        <div class="session-row">
+          <span class="session-icon">🙏</span>
+          <div class="session-body">
+            <div class="session-header">
+              <h3>Opening Prayer</h3>
+              <span class="session-time">2:00 &ndash; 2:10 PM</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="session-item">
+        <div class="session-row">
+          <span class="session-icon">💡</span>
+          <div class="session-body">
+            <div class="session-header">
+              <h3>Ice Breaker</h3>
+              <span class="session-time">2:10 &ndash; 2:20 PM</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="session-item">
+        <div class="session-row">
+          <span class="session-icon">🚀</span>
+          <div class="session-body">
+            <div class="session-header">
+              <h3>Introduction: Turning Ideas into Action</h3>
+              <span class="session-time">2:20 &ndash; 2:35 PM</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="session-item">
+        <div class="session-row">
+          <span class="session-icon">🛠️</span>
+          <div class="session-body">
+            <div class="session-header">
+              <h3>Practical Workshops (Choose One)</h3>
+              <span class="session-time">2:35 &ndash; 4:20 PM</span>
+            </div>
+            <p class="session-desc">Breakout sessions for hands-on learning and skill development.</p>
+            <div class="workshops">
+
+              <div class="workshop">
+                <h4>1. AI for Success</h4>
+                <p>Using AI for learning, assignments, research, CV writing, business planning, productivity &mdash; creating a 90-day life plan.</p>
+                <ul>
+                  <li>AI for assignments and research</li>
+                  <li>AI for CV writing and business planning</li>
+                  <li>Creating a 90-day life plan</li>
+                </ul>
+                <p style="margin-top:0.3rem; font-size:0.8rem; color:#88ccff;"><strong>Outcome:</strong> Every participant creates a personal action plan using AI.</p>
+              </div>
+
+              <div class="workshop">
+                <h4>2. Start Your First Business</h4>
+                <p>Develop a real business you can start with limited capital.</p>
+                <ul>
+                  <li>Poultry &middot; Car Wash &middot; Graphic Design &middot; Baking</li>
+                  <li>Vegetable Farming &middot; Printing &middot; Digital Services</li>
+                  <li>Photography &middot; Fashion &middot; Phone Accessories</li>
+                </ul>
+                <p style="margin-top:0.3rem; font-size:0.8rem; color:#88ccff;"><strong>Outcome:</strong> A completed one-page business plan.</p>
+              </div>
+
+              <div class="workshop">
+                <h4>3. Career Development</h4>
+                <p>Participants prepare:</p>
+                <ul>
+                  <li>Professional CV</li>
+                  <li>LinkedIn Profile</li>
+                  <li>Career Roadmap</li>
+                  <li>Interview Preparation</li>
+                  <li>Personal Portfolio</li>
+                </ul>
+              </div>
+
+              <div class="workshop">
+                <h4>4. Digital Skills for Income</h4>
+                <p>Choose one skill to begin immediately:</p>
+                <ul>
+                  <li>Programming &middot; Graphic Design &middot; Video Editing</li>
+                  <li>Web Design &middot; Digital Marketing &middot; Cybersecurity</li>
+                  <li>Data Analysis &middot; Content Creation</li>
+                </ul>
+              </div>
+
+              <div class="workshop">
+                <h4>5. Ministry Beyond the Pulpit</h4>
+                <p>Projects include:</p>
+                <ul>
+                  <li>School Bible Study &middot; Community Outreach</li>
+                  <li>Children's Ministry &middot; Evangelism</li>
+                  <li>Youth Mentorship &middot; Media Ministry</li>
+                </ul>
+              </div>
+
+              <div class="workshop">
+                <h4>6. Community Problem Solvers</h4>
+                <p>Identify a community problem and design a practical solution.</p>
+                <ul>
+                  <li>Drug Abuse &middot; Youth Unemployment</li>
+                  <li>Poor Reading Culture &middot; Environmental Cleanliness</li>
+                  <li>Poverty</li>
+                </ul>
+              </div>
+
+              <div class="workshop">
+                <h4>7. Financial Freedom</h4>
+                <ul>
+                  <li>Budgeting &middot; Saving &middot; Investing</li>
+                  <li>Managing Debt &middot; Building Wealth</li>
+                </ul>
+              </div>
+
+              <div class="workshop">
+                <h4>8. Personal Branding</h4>
+                <p>Create your:</p>
+                <ul>
+                  <li>Vision Statement &amp; Mission Statement</li>
+                  <li>Professional Profile &amp; Business Card</li>
+                  <li>Social Media Strategy</li>
+                </ul>
+              </div>
+
+              <div class="workshop" style="border-color:#ffd700;">
+                <h4>9. Navigating Social Media for Kingdom Impact</h4>
+                <p>How to build your personal brand, find careers, connect with investors, and secure business partners as a Christian. Led by an expert in social media marketing and branding.</p>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="session-item">
+        <div class="session-row">
+          <span class="session-icon">👥</span>
+          <div class="session-body">
+            <div class="session-header">
+              <h3>Group Presentations</h3>
+              <span class="session-time">4:20 &ndash; 4:45 PM</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="session-item">
+        <div class="session-row">
+          <span class="session-icon">📝</span>
+          <div class="session-body">
+            <div class="session-header">
+              <h3>30-Day Action Commitment Challenge</h3>
+              <span class="session-time">4:45 &ndash; 4:55 PM</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="session-item">
+        <div class="session-row">
+          <span class="session-icon">🙏</span>
+          <div class="session-body">
+            <div class="session-header">
+              <h3>Closing Prayer</h3>
+              <span class="session-time">4:55 &ndash; 5:00 PM</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- FRIDAY EVENING -->
+    <div class="day-section">
+      <p class="day-sub">Friday Evening Service &middot; 7:00 PM &ndash; 10:00 PM</p>
+
+      <div class="session-item">
+        <div class="session-row">
+          <span class="session-icon">🎵</span>
+          <div class="session-body">
+            <div class="session-header">
+              <h3>Praise &amp; Worship</h3>
+              <span class="session-time">7:00 &ndash; 7:30 PM</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="session-item">
+        <div class="session-row">
+          <span class="session-icon">🎤</span>
+          <div class="session-body">
+            <div class="session-header">
+              <h3>Preacher: _______________________________</h3>
+              <span class="session-time">7:30 &ndash; 8:30 PM</span>
+            </div>
+            <p class="session-topic">Suggested Topic: Faith, Discipline and Taking Action</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="session-item">
+        <div class="session-row">
+          <span class="session-icon">🔥</span>
+          <div class="session-body">
+            <div class="session-header">
+              <h3>Prayer &amp; Ministry</h3>
+              <span class="session-time">8:30 &ndash; 9:45 PM</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="session-item">
+        <div class="session-row">
+          <span class="session-icon">📢</span>
+          <div class="session-body">
+            <div class="session-header">
+              <h3>Announcements &amp; Closing Prayer</h3>
+              <span class="session-time">9:45 &ndash; 10:00 PM</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SATURDAY MORNING -->
+    <div class="day-section">
+      <h2>SATURDAY &ndash; 18 JULY 2026</h2>
+      <p class="day-sub">Morning Service &middot; 10:00 AM &ndash; 1:00 PM</p>
+
+      <div class="session-item">
+        <div class="session-row">
+          <span class="session-icon">🎵</span>
+          <div class="session-body">
+            <div class="session-header">
+              <h3>Praise &amp; Worship</h3>
+              <span class="session-time">10:00 &ndash; 10:25 AM</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="session-item">
+        <div class="session-row">
+          <span class="session-icon">🙏</span>
+          <div class="session-body">
+            <div class="session-header">
+              <h3>Opening Prayer</h3>
+              <span class="session-time">10:25 &ndash; 10:35 AM</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="session-item">
+        <div class="session-row">
+          <span class="session-icon">🎤</span>
+          <div class="session-body">
+            <div class="session-header">
+              <h3>Preacher: _______________________________</h3>
+              <span class="session-time">10:35 &ndash; 11:35 AM</span>
+            </div>
+            <p class="session-topic">Suggested Topic: Character, Integrity and Leadership</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="session-item">
+        <div class="session-row">
+          <span class="session-icon">☕</span>
+          <div class="session-body">
+            <div class="session-header">
+              <h3>Tea Break</h3>
+              <span class="session-time">11:35 &ndash; 11:50 AM</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="session-item">
+        <div class="session-row">
+          <span class="session-icon">📖</span>
+          <div class="session-body">
+            <div class="session-header">
+              <h3>Bible Quiz &amp; Interactive Activities</h3>
+              <span class="session-time">11:50 AM &ndash; 12:40 PM</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="session-item">
+        <div class="session-row">
+          <span class="session-icon">🙌</span>
+          <div class="session-body">
+            <div class="session-header">
+              <h3>Prayer &amp; Commitment</h3>
+              <span class="session-time">12:40 &ndash; 12:55 PM</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="session-item">
+        <div class="session-row">
+          <span class="session-icon">📢</span>
+          <div class="session-body">
+            <div class="session-header">
+              <h3>Announcements</h3>
+              <span class="session-time">12:55 &ndash; 1:00 PM</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SATURDAY AFTERNOON -->
+    <div class="day-section">
+      <p class="day-sub">Life Skills &amp; Relationship Forum</p>
+      <p class="day-theme">Theme: Building a Successful Life God's Way &middot; 2:00 PM &ndash; 5:00 PM</p>
+
+      <div class="session-item">
+        <div class="session-row">
+          <span class="session-icon">🙏</span>
+          <div class="session-body">
+            <div class="session-header">
+              <h3>Opening Prayer</h3>
+              <span class="session-time">2:00 &ndash; 2:10 PM</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="session-item">
+        <div class="session-row">
+          <span class="session-icon">📋</span>
+          <div class="session-body">
+            <div class="session-header">
+              <h3>Introduction</h3>
+              <span class="session-time">2:10 &ndash; 2:20 PM</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="session-item">
+        <div class="session-row">
+          <span class="session-icon">💬</span>
+          <div class="session-body">
+            <div class="session-header">
+              <h3>Practical Group Discussions</h3>
+              <span class="session-time">2:20 &ndash; 4:20 PM</span>
+            </div>
+            <div class="discussion-grid">
+              <div class="discussion-item">Preparing for Marriage God's Way</div>
+              <div class="discussion-item">Choosing the Right Life Partner</div>
+              <div class="discussion-item">Christian Dating &amp; Relationships</div>
+              <div class="discussion-item">Communication Skills</div>
+              <div class="discussion-item">Conflict Resolution</div>
+              <div class="discussion-item">Financial Planning for Young Adults</div>
+              <div class="discussion-item">Entrepreneurship &amp; Wealth Creation</div>
+              <div class="discussion-item">Leadership &amp; Influence</div>
+              <div class="discussion-item">Time Management</div>
+              <div class="discussion-item">Balancing Faith, Family and Career</div>
+              <div class="discussion-item">Mental Health &amp; Emotional Wellness</div>
+              <div class="discussion-item">Sexual Purity &amp; Identity</div>
+              <div class="discussion-item">Building Healthy Friendships</div>
+              <div class="discussion-item">Parenting Principles for Future Families</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="session-item">
+        <div class="session-row">
+          <span class="session-icon">👥</span>
+          <div class="session-body">
+            <div class="session-header">
+              <h3>Group Presentations</h3>
+              <span class="session-time">4:20 &ndash; 4:45 PM</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="session-item">
+        <div class="session-row">
+          <span class="session-icon">🙏</span>
+          <div class="session-body">
+            <div class="session-header">
+              <h3>Prayer &amp; Commitment</h3>
+              <span class="session-time">4:45 &ndash; 4:55 PM</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="session-item">
+        <div class="session-row">
+          <span class="session-icon">🙏</span>
+          <div class="session-body">
+            <div class="session-header">
+              <h3>Closing Prayer</h3>
+              <span class="session-time">4:55 &ndash; 5:00 PM</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SATURDAY EVENING -->
+    <div class="day-section">
+      <p class="day-sub">Saturday Evening</p>
+      <p class="day-theme">🔥 Bush Fire Night &middot; 7:00 PM &ndash; 10:00 PM</p>
+
+      <div class="session-item">
+        <div class="session-row">
+          <span class="session-icon">🔥</span>
+          <div class="session-body">
+            <div class="session-header">
+              <h3>Gathering Around the Fire</h3>
+              <span class="session-time">7:00 &ndash; 7:20 PM</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="session-item">
+        <div class="session-row">
+          <span class="session-icon">🎵</span>
+          <div class="session-body">
+            <div class="session-header">
+              <h3>Praise &amp; Worship</h3>
+              <span class="session-time">7:20 &ndash; 7:45 PM</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="session-item">
+        <div class="session-row">
+          <span class="session-icon">🎤</span>
+          <div class="session-body">
+            <div class="session-header">
+              <h3>Preacher: _______________________________</h3>
+              <span class="session-time">7:45 &ndash; 8:45 PM</span>
+            </div>
+            <p class="session-topic">Suggested Topic: Keeping the Fire Burning After the Conference</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="session-item">
+        <div class="session-row">
+          <span class="session-icon">🔥</span>
+          <div class="session-body">
+            <div class="session-header">
+              <h3>Prayer, Testimonies &amp; Commitment</h3>
+              <span class="session-time">8:45 &ndash; 9:45 PM</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="session-item">
+        <div class="session-row">
+          <span class="session-icon">🤝</span>
+          <div class="session-body">
+            <div class="session-header">
+              <h3>Fellowship &amp; Closing Prayer</h3>
+              <span class="session-time">9:45 &ndash; 10:00 PM</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SUNDAY -->
+    <div class="day-section">
+      <h2>SUNDAY &ndash; 19 JULY 2026</h2>
+      <p class="day-sub">Thanksgiving &amp; Closing Service &middot; 9:00 AM &ndash; 12:30 PM</p>
+
+      <div class="session-item">
+        <div class="session-row">
+          <span class="session-icon">🎵</span>
+          <div class="session-body">
+            <div class="session-header">
+              <h3>Praise &amp; Worship</h3>
+              <span class="session-time">9:00 &ndash; 9:30 AM</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="session-item">
+        <div class="session-row">
+          <span class="session-icon">🙏</span>
+          <div class="session-body">
+            <div class="session-header">
+              <h3>Opening Prayer</h3>
+              <span class="session-time">9:30 &ndash; 9:40 AM</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="session-item">
+        <div class="session-row">
+          <span class="session-icon">🎤</span>
+          <div class="session-body">
+            <div class="session-header">
+              <h3>Preacher: _______________________________</h3>
+              <span class="session-time">9:40 &ndash; 10:40 AM</span>
+            </div>
+            <p class="session-topic">Suggested Topic: Living the Dream &ndash; Becoming the Light in Your Generation</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="session-item">
+        <div class="session-row">
+          <span class="session-icon">🔥</span>
+          <div class="session-body">
+            <div class="session-header">
+              <h3>Prayer, Dedication &amp; Commissioning</h3>
+              <span class="session-time">10:40 &ndash; 11:20 AM</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="session-item">
+        <div class="session-row">
+          <span class="session-icon">🗣️</span>
+          <div class="session-body">
+            <div class="session-header">
+              <h3>Testimonies from Participants</h3>
+              <span class="session-time">11:20 &ndash; 11:45 AM</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="session-item">
+        <div class="session-row">
+          <span class="session-icon">👏</span>
+          <div class="session-body">
+            <div class="session-header">
+              <h3>Appreciation of Speakers, Facilitators &amp; Volunteers</h3>
+              <span class="session-time">11:45 AM &ndash; 12:10 PM</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="session-item">
+        <div class="session-row">
+          <span class="session-icon">🙏</span>
+          <div class="session-body">
+            <div class="session-header">
+              <h3>Vote of Thanks</h3>
+              <span class="session-time">12:10 &ndash; 12:25 PM</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="session-item">
+        <div class="session-row">
+          <span class="session-icon">🙌</span>
+          <div class="session-body">
+            <div class="session-header">
+              <h3>Closing Prayer &amp; Benediction</h3>
+              <span class="session-time">12:25 &ndash; 12:30 PM</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 30-DAY CHALLENGE -->
+    <div class="challenge-box">
+      <h3>📅 Conference Challenge &ndash; "30 Days from Dreams to Reality"</h3>
+      <p>Before leaving the conference, every participant will complete an <strong>Action Commitment Card</strong>, committing to start a real project within 30 days. Projects may include:</p>
+      <ul>
+        <li>Starting a small business.</li>
+        <li>Learning a digital or AI skill.</li>
+        <li>Launching a ministry or community outreach.</li>
+        <li>Beginning a savings or investment plan.</li>
+        <li>Completing a professional CV and applying for jobs.</li>
+        <li>Starting an online course or certification.</li>
+        <li>Developing a personal brand or portfolio.</li>
+        <li>Solving a community problem through a practical initiative.</li>
+      </ul>
+      <p style="margin-top:0.75rem;">Participants will be encouraged to join accountability groups and reconnect after 30 days to share progress, celebrate successes, and receive mentorship. This ensures the conference moves beyond inspiration to measurable transformation, making the theme <strong>"From Dreams to Reality"</strong> a lived experience.</p>
+    </div>
+
+    <!-- HOSTS -->
+    <div class="hosts">
+      <p><span class="label">VENUE:</span> Talent Smart Christian School, Kolonyama</p>
+      <p><span class="label">FEE:</span> M200 &middot; Everyone Invited</p>
+      <p style="margin-top:0.8rem;"><span class="label">HOSTS:</span> Christian Safe Haven &middot; Grace House &middot; House of Disciples</p>
+    </div>
+
+  </div>
+
+  <footer class="page-footer">
+    <p>Youth Conference &mdash; From Dreams to Reality &bull; 16&ndash;19 July 2026</p>
+  </footer>
+</main>
+
+<script>
+function toggleBooks(btn) {
+  const list = btn.nextElementSibling;
+  if (list.style.display === 'none') {
+    list.style.display = 'flex';
+    btn.textContent = 'Hide Book Recommendations';
+  } else {
+    list.style.display = 'none';
+    btn.textContent = 'Show Book Recommendations';
+  }
+}
+
+function downloadPDF() {
+  const headerHTML = document.getElementById('print-header').outerHTML;
+  const contentHTML = document.getElementById('program-content').outerHTML;
+
+  const printWin = window.open('', '_blank', 'width=800,height=600');
+  printWin.document.write('<!DOCTYPE html><html><head><meta charset="UTF-8"><title>Youth Conference Programme</title>');
+  printWin.document.write('<style>');
+  printWin.document.write(`
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: system-ui, -apple-system, sans-serif; background: #fff; color: #000; font-size: 10pt; padding: 0; }
+    header { background: #1a1a4e; padding: 1.5rem 1rem; text-align: center; border-bottom: 3px solid #b8860b; }
+    header h1 { font-size: 22pt; font-weight: 800; color: #b8860b; letter-spacing: -0.02em; }
+    header .theme { font-size: 14pt; font-weight: 300; margin-top: 0.3rem; color: #fff; }
+    header .scripture { font-size: 9pt; font-style: italic; margin-top: 0.4rem; color: #ddd; }
+    header .details { font-size: 9pt; margin-top: 0.25rem; color: #ddd; }
+    header .fee { display: inline-block; margin-top: 0.5rem; background: #b8860b; color: #fff; padding: 0.2rem 1rem; border-radius: 20px; font-weight: 700; font-size: 9pt; }
+    main { max-width: 700px; margin: 0 auto; padding: 1rem 0.5rem; }
+    .schedule { display: flex; flex-direction: column; gap: 0.75rem; }
+    .day-section { background: #f4f4ff; border: 1px solid #999; border-radius: 6px; padding: 0.8rem; page-break-inside: avoid; }
+    .day-section h2 { font-size: 14pt; color: #b8860b; margin-bottom: 0.15rem; }
+    .day-sub, .day-theme { font-size: 9pt; opacity: 0.8; margin-bottom: 0.25rem; }
+    .day-theme { color: #3366cc; font-style: italic; }
+    .session-item { padding: 0.3rem 0; border-bottom: 1px solid rgba(0,0,0,0.06); page-break-inside: avoid; }
+    .session-item:last-child { border-bottom: none; }
+    .session-row { display: flex; align-items: flex-start; gap: 0.5rem; }
+    .session-icon { font-size: 10pt; flex-shrink: 0; margin-top: 0.1rem; }
+    .session-body { flex: 1; }
+    .session-header { display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 0.3rem; }
+    .session-header h3 { font-size: 10pt; font-weight: 600; color: #000; }
+    .session-time { font-size: 8pt; color: #b8860b; white-space: nowrap; font-weight: 500; }
+    .session-desc, .session-topic { margin-top: 0.15rem; font-size: 8.5pt; opacity: 0.85; }
+    .session-topic { color: #3366cc; font-style: italic; }
+    .workshops { margin-top: 0.5rem; }
+    .workshop { background: #fff; border: 1px solid #ccc; border-radius: 4px; padding: 0.45rem 0.6rem; margin-bottom: 0.35rem; page-break-inside: avoid; }
+    .workshop h4 { font-size: 9.5pt; color: #b8860b; }
+    .workshop p, .workshop ul { font-size: 8.5pt; opacity: 0.85; }
+    .workshop ul { margin-top: 0.2rem; padding-left: 1.2rem; }
+    .books-list { display: flex; flex-direction: column; gap: 0.25rem; margin-top: 0.4rem; }
+    .book-item { display: flex; justify-content: space-between; align-items: center; background: #f9f9f9; border: 1px solid #ddd; border-radius: 4px; padding: 0.3rem 0.5rem; font-size: 8.5pt; }
+    .book-domain { background: #b8860b; color: #fff; font-size: 7pt; padding: 0.1rem 0.4rem; border-radius: 3px; font-weight: 600; white-space: nowrap; margin-left: 0.5rem; flex-shrink: 0; }
+    .discussion-grid { column-count: 2; column-gap: 0.4rem; margin-top: 0.5rem; }
+    .discussion-item { background: #f9f9f9; border: 1px solid #ddd; border-left: 3px solid #b8860b; border-radius: 3px; padding: 0.3rem 0.5rem; font-size: 8.5pt; margin-bottom: 0.3rem; page-break-inside: avoid; }
+    .challenge-box { background: #f4f4ff; border: 2px solid #b8860b; border-radius: 6px; padding: 0.8rem; margin-top: 0.75rem; page-break-inside: avoid; }
+    .challenge-box h3 { color: #b8860b; font-size: 12pt; }
+    .challenge-box p, .challenge-box ul { font-size: 9pt; opacity: 0.9; }
+    .challenge-box ul { margin-top: 0.4rem; padding-left: 1.2rem; }
+    .challenge-box ul li { margin-top: 0.2rem; }
+    .hosts { background: #f4f4ff; border: 1px solid #ccc; border-radius: 6px; padding: 1rem; text-align: center; margin-top: 0.75rem; font-size: 9pt; }
+    .hosts .label { color: #b8860b; font-weight: 600; }
+    .page-footer { margin-top: 1.5rem; padding: 0.5rem; text-align: center; border-top: 1px solid #ccc; font-size: 8pt; opacity: 0.7; }
+    .toolbar, .books-btn { display: none; }
+    @page { size: A4; margin: 12mm 10mm; }
+  `);
+  printWin.document.write('</style></head><body>');
+  printWin.document.write(headerHTML);
+  printWin.document.write('<main>' + contentHTML + '</main>');
+  printWin.document.write('</body></html>');
+  printWin.document.close();
+
+  printWin.onload = function() {
+    setTimeout(function() {
+      printWin.focus();
+      printWin.print();
+    }, 500);
+  };
+}
+</script>
+
+</body>
+</html>
